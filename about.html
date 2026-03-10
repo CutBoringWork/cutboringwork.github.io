@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="theme-color" content="#1b4d4a">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Story — Cut Boring Work</title>
+  <meta name="description" content="Why we built Clara. A son's journey through his father's dementia, and the tool he wished existed.">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/logo-192.png" type="image/png" sizes="192x192">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --brand: #1b4d4a;
+      --brand-dark: #123633;
+      --brand-light: #2a7a75;
+      --cream: #fdfcf8;
+      --warm-bg: #f5efe0;
+      --ink: #1a1a1a;
+      --muted: #6b6b6b;
+      --border: #e8e2d6;
+    }
+    html { background-color: var(--brand); }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+    .header {
+      background: var(--brand);
+      color: white;
+      padding: 16px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .header-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: white;
+    }
+    .header-brand svg { width: 32px; height: 32px; }
+    .header-brand h1 {
+      font-family: 'Fraunces', serif;
+      font-size: 20px;
+      font-weight: 700;
+    }
+    .header-nav a {
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      margin-left: 24px;
+      transition: color 0.2s;
+    }
+    .header-nav a:hover { color: white; }
+
+    .story-hero {
+      background: linear-gradient(180deg, var(--brand) 0%, var(--brand-dark) 100%);
+      color: white;
+      padding: 80px 32px 60px;
+      text-align: center;
+    }
+    .story-hero h2 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 16px;
+    }
+    .story-hero p {
+      font-size: 1.1rem;
+      color: rgba(255,255,255,0.75);
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .story-content {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 60px 32px 80px;
+    }
+    .story-content p {
+      font-size: 17px;
+      line-height: 1.8;
+      color: #333;
+      margin-bottom: 24px;
+    }
+    .story-content p:last-of-type {
+      margin-bottom: 0;
+    }
+    .story-content .pullquote {
+      font-family: 'Fraunces', serif;
+      font-size: 22px;
+      font-weight: 600;
+      color: var(--brand);
+      line-height: 1.5;
+      border-left: 4px solid var(--brand);
+      padding-left: 24px;
+      margin: 40px 0;
+    }
+    .story-content .signature {
+      margin-top: 48px;
+      padding-top: 32px;
+      border-top: 1px solid var(--border);
+      font-size: 15px;
+      color: var(--muted);
+    }
+    .story-content .signature strong {
+      color: var(--ink);
+      display: block;
+      font-size: 17px;
+      margin-bottom: 4px;
+    }
+
+    .story-cta {
+      background: var(--warm-bg);
+      padding: 48px 32px;
+      text-align: center;
+    }
+    .story-cta p {
+      font-size: 17px;
+      color: var(--muted);
+      margin-bottom: 20px;
+    }
+    .story-cta a {
+      display: inline-block;
+      background: var(--brand);
+      color: white;
+      font-weight: 600;
+      font-size: 15px;
+      padding: 12px 28px;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .story-cta a:hover { background: var(--brand-dark); }
+
+    .footer {
+      background: var(--brand-dark);
+      color: rgba(255,255,255,0.7);
+      padding: 40px 32px;
+      text-align: center;
+      font-size: 14px;
+    }
+    .footer a {
+      color: rgba(255,255,255,0.9);
+      text-decoration: none;
+    }
+    .footer a:hover { text-decoration: underline; }
+    .footer-brand {
+      font-family: 'Fraunces', serif;
+      font-size: 18px;
+      color: white;
+      margin-bottom: 8px;
+    }
+    .footer p { margin-top: 8px; }
+
+    @media (max-width: 768px) {
+      .header { padding: 14px 20px; }
+      .header-nav { display: none; }
+      .story-hero { padding: 60px 20px 40px; }
+      .story-content { padding: 40px 20px 60px; }
+      .story-cta { padding: 32px 20px; }
+      .footer { padding: 32px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <a href="/" class="header-brand">
+      <svg viewBox="0 0 64 64" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+        <rect width="64" height="64" rx="14" fill="rgba(255,255,255,0.15)"/>
+        <path d="M21 32a11 11 0 1 1 11 11" fill="none" stroke="white" stroke-width="4" stroke-linecap="round"/>
+        <path d="M24 32l6 6 12-14" fill="none" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      <h1>Clara</h1>
+    </a>
+    <nav class="header-nav">
+      <a href="https://clara.cutboringwork.com">Clara</a>
+      <a href="/about.html">Our Story</a>
+      <a href="mailto:howto@cutboringwork.com">Contact</a>
+    </nav>
+  </header>
+
+  <section class="story-hero">
+    <h2>Why We Built Clara</h2>
+    <p>This started with my dad.</p>
+  </section>
+
+  <article class="story-content">
+    <p>My father battled dementia for several years. If you've been through it with someone you love, you know what that's like. The slow fade. The conversations that loop. The moment you realize the person sitting across from you needs more care than your family can provide at home.</p>
+
+    <p>That realization is where the hardest part begins.</p>
+
+    <p>When we started looking for care facilities, I expected the process to be straightforward. It wasn't. We spent weeks calling places, driving across town, trying to compare options that were nearly impossible to compare. Inspection reports were buried in state databases. Reviews were sparse or outdated. Nobody could tell us which facilities had actual availability, and the ones that could were trying to sell us something.</p>
+
+    <p>The whole system felt like it was designed for insiders, not for families in crisis.</p>
+
+    <div class="pullquote">I kept thinking: someone should make this easier. Eventually I stopped waiting for someone else to do it.</div>
+
+    <p>I'm a technologist. I've spent my career building cloud infrastructure and solving complex problems with software. After I lost my dad, I couldn't shake the feeling that the tools we needed during those difficult months simply didn't exist. So I started building them.</p>
+
+    <p>Clara began as a simple question: what if you could search every licensed care facility in Washington State, see their real inspection history, and get an honest read on quality, all in one place? No sales pitch. No gated information. Just the data families need to make a good decision during an impossibly hard time.</p>
+
+    <p>The name Clara means "bright" or "clear." That's the goal. Clarity when everything feels confusing. Light when you're navigating in the dark.</p>
+
+    <p>Today, Clara covers over 5,000 facilities across Washington. It pulls real inspection data from the state, analyzes deficiency reports, and gives you a plain-language summary of what's going on at each facility. You can search by location, compare options side by side, and get the information that matters without creating an account or talking to a salesperson.</p>
+
+    <p>This isn't a business born from a market opportunity. It's a tool I wish I'd had. I'm building it so other families don't have to go through what mine did with so little help.</p>
+
+    <p>If you're in the middle of this right now, looking for care for someone you love, I hope Clara makes it a little easier.</p>
+
+    <div class="signature">
+      <strong>Nilesh Londhe</strong>
+      Founder, Cut Boring Work
+    </div>
+  </article>
+
+  <section class="story-cta">
+    <p>Clara is free to use. No account required to search.</p>
+    <a href="https://clara.cutboringwork.com">Try Clara →</a>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-brand">Clara</div>
+    <p>Built by <a href="https://cloudgenius.app">Cloud Genius</a></p>
+    <p style="margin-top: 12px;"><a href="mailto:howto@cutboringwork.com">howto@cutboringwork.com</a></p>
+    <p style="margin-top: 12px;"><a href="/about.html">Our Story</a> · <a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a></p>
+  </footer>
+
+</body>
+</html>
