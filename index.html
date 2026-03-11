@@ -62,6 +62,23 @@
       color: white;
     }
     .header-brand svg { width: 32px; height: 32px; }
+    .header-brand .brand-logo {
+      position: relative;
+      overflow: hidden;
+      display: inline-flex;
+      border-radius: 10px;
+    }
+    .header-brand .brand-logo::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.4) 50%, transparent 100%);
+      animation: shine 3s ease-in-out infinite;
+    }
+    @keyframes shine {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
     .header-brand h1 {
       font-family: 'Fraunces', serif;
       font-size: 20px;
@@ -384,11 +401,11 @@
 
   <header class="header">
     <a href="/" class="header-brand">
-      <svg viewBox="0 0 64 64" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+      <span class="brand-logo"><svg viewBox="0 0 64 64" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
         <rect width="64" height="64" rx="14" fill="rgba(255,255,255,0.15)"/>
         <path d="M21 32a11 11 0 1 1 11 11" fill="none" stroke="white" stroke-width="4" stroke-linecap="round"/>
         <path d="M24 32l6 6 12-14" fill="none" stroke="white" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
+      </svg></span>
       <h1>Clara</h1>
     </a>
     <nav class="header-nav">
