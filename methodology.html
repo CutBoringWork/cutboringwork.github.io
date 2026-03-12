@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="theme-color" content="#1b4d4a">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>How Clara Rates Facilities — Cut Boring Work</title>
+  <meta name="description" content="How Clara's map markers work. What the colors mean, where the data comes from, and how we turn state inspection reports into simple ratings.">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/logo-192.png" type="image/png" sizes="192x192">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --brand: #1b4d4a;
+      --brand-dark: #123633;
+      --brand-light: #2a7a75;
+      --cream: #fdfcf8;
+      --warm-bg: #f5efe0;
+      --ink: #1a1a1a;
+      --muted: #6b6b6b;
+      --border: #e8e2d6;
+    }
+    html { background-color: var(--brand); }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+    }
+    .header {
+      background: var(--brand);
+      color: white;
+      padding: 16px 32px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .header-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: white;
+    }
+    .header-brand svg { width: 32px; height: 32px; }
+    .header-brand h1 {
+      font-family: 'Fraunces', serif;
+      font-size: 20px;
+      font-weight: 700;
+    }
+    .header-nav a {
+      color: rgba(255,255,255,0.85);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 500;
+      margin-left: 24px;
+      transition: color 0.2s;
+    }
+    .header-nav a:hover { color: white; }
+
+    .page-hero {
+      background: linear-gradient(180deg, var(--brand) 0%, var(--brand-dark) 100%);
+      color: white;
+      padding: 60px 32px 48px;
+      text-align: center;
+    }
+    .page-hero h2 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(1.8rem, 4vw, 2.6rem);
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 12px;
+    }
+    .page-hero p {
+      font-size: 1.05rem;
+      color: rgba(255,255,255,0.8);
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    .content {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 48px 24px 64px;
+      line-height: 1.75;
+      font-size: 1.05rem;
+    }
+    .content h3 {
+      font-family: 'Fraunces', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin: 48px 0 16px;
+      color: var(--brand);
+    }
+    .content h3:first-of-type { margin-top: 0; }
+    .content p { margin-bottom: 16px; }
+    .content ul, .content ol { margin: 0 0 16px 24px; }
+    .content li { margin-bottom: 8px; }
+
+    .marker-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      margin: 16px 0;
+    }
+    .marker-icon {
+      flex-shrink: 0;
+      width: 28px;
+      height: 44px;
+    }
+    .marker-icon img { width: 28px; height: auto; }
+    .marker-text h4 {
+      font-weight: 700;
+      font-size: 1rem;
+      margin-bottom: 4px;
+    }
+    .marker-text p { margin: 0; font-size: 0.95rem; color: var(--muted); }
+
+    .verified-card {
+      background: #ebf5fe;
+      border-color: #bde0fe;
+    }
+    .verified-card h4 { color: #1d9bf0; }
+
+    .badge-example {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      background: #EBF5FE;
+      color: #1D9BF0;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 3px 10px 3px 6px;
+      border-radius: 14px;
+      vertical-align: middle;
+    }
+    .badge-example svg { width: 16px; height: 16px; flex-shrink: 0; }
+
+    .process-step {
+      display: flex;
+      gap: 16px;
+      margin: 20px 0;
+    }
+    .step-number {
+      flex-shrink: 0;
+      width: 36px;
+      height: 36px;
+      background: var(--brand);
+      color: white;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+    .step-text h4 { font-weight: 600; margin-bottom: 2px; }
+    .step-text p { margin: 0; font-size: 0.95rem; color: var(--muted); }
+
+    .callout {
+      background: var(--warm-bg);
+      border-left: 4px solid var(--brand);
+      padding: 16px 20px;
+      border-radius: 0 8px 8px 0;
+      margin: 24px 0;
+      font-size: 0.95rem;
+    }
+
+    .footer {
+      background: var(--brand-dark);
+      color: rgba(255,255,255,0.7);
+      text-align: center;
+      padding: 40px 32px;
+      font-size: 0.85rem;
+    }
+    .footer a { color: rgba(255,255,255,0.85); text-decoration: none; }
+    .footer a:hover { color: white; }
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      margin-bottom: 12px;
+      font-family: 'Fraunces', serif;
+      font-size: 18px;
+      color: white;
+      font-weight: 700;
+    }
+    .footer-logo {
+      display: inline-flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      border-radius: 6px;
+    }
+
+    @media (max-width: 600px) {
+      .header { padding: 12px 16px; }
+      .header-nav a { margin-left: 14px; font-size: 13px; }
+      .content { padding: 32px 16px 48px; }
+      .marker-card { flex-direction: column; gap: 10px; }
+      .process-step { flex-direction: column; gap: 8px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="header">
+    <a href="/" class="header-brand">
+      <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+        <rect width="64" height="64" rx="14" fill="rgba(255,255,255,0.15)"/>
+        <path d="M21 32a11 11 0 1 1 11 11" fill="none" stroke="white" stroke-width="3.5" stroke-linecap="round"/>
+        <circle cx="32" cy="32" r="5" fill="none" stroke="white" stroke-width="2"/>
+        <path d="M27 30.5c0-4 3.5-6 6.5-5.5 2.2.4 3.5 2 3.5 4.5" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+        <path d="M27 30.5v1.5" fill="none" stroke="white" stroke-width="1.6" stroke-linecap="round"/>
+        <circle cx="30" cy="32" r="1" fill="white"/>
+        <circle cx="34" cy="32" r="1" fill="white"/>
+        <path d="M30.5 34.5q1.5 1.5 3 0" fill="none" stroke="white" stroke-width="1.2" stroke-linecap="round"/>
+        <path d="M42 22l1-2 1 2 2 1-2 1-1 2-1-2-2-1z" fill="#7ecec6"/>
+      </svg>
+      <h1>Clara</h1>
+    </a>
+    <nav class="header-nav">
+      <a href="/about.html">Our Story</a>
+      <a href="https://clara.cutboringwork.com">Try Clara</a>
+    </nav>
+  </header>
+
+  <section class="page-hero">
+    <h2>How Clara Rates Facilities</h2>
+    <p>What the map colors mean, where the data comes from, and how we keep it honest.</p>
+  </section>
+
+  <article class="content">
+
+    <h3>The Short Version</h3>
+    <p>Every pin on Clara's map is a real, licensed care facility in Washington State. The color of the pin tells you how their most recent state inspection went. That's it. No opinion, no guesswork. Just what the state found.</p>
+
+    <h3>What the Colors Mean</h3>
+
+    <div class="marker-card">
+      <div class="marker-icon"><img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png" alt="Green marker"></div>
+      <div class="marker-text">
+        <h4>🟢 Green — No Findings</h4>
+        <p>The state inspected this facility and found nothing wrong. Clean bill of health on their latest inspection. This is the best result a facility can get.</p>
+      </div>
+    </div>
+
+    <div class="marker-card">
+      <div class="marker-icon"><img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-yellow.png" alt="Yellow marker"></div>
+      <div class="marker-text">
+        <h4>🟡 Yellow — Findings Corrected</h4>
+        <p>Inspectors found some issues, but the facility fixed them. Think of it like getting a note from the teacher but doing your homework to make it right. The problems were real, but they've been resolved.</p>
+      </div>
+    </div>
+
+    <div class="marker-card">
+      <div class="marker-icon"><img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png" alt="Red marker"></div>
+      <div class="marker-text">
+        <h4>🔴 Red — Findings Uncorrected</h4>
+        <p>Inspectors found problems and the facility has <strong>not yet fixed them</strong> as of their last inspection. This doesn't automatically mean the facility is bad, but it does mean there are open issues the state is tracking. Worth digging into the details before making a decision.</p>
+      </div>
+    </div>
+
+    <div class="marker-card">
+      <div class="marker-icon"><img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-grey.png" alt="Gray marker"></div>
+      <div class="marker-text">
+        <h4>⚪ Gray — No Recent Data</h4>
+        <p>We don't have a recent inspection on file for this facility. Either their last inspection was over 12 months ago, or the state hasn't published the results yet. Gray doesn't mean good or bad. It just means we can't tell you right now.</p>
+      </div>
+    </div>
+
+    <div class="marker-card">
+      <div class="marker-icon"><img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png" alt="Blue marker"></div>
+      <div class="marker-text">
+        <h4>🔵 Blue — Your Location</h4>
+        <p>This one's just you! When you search for facilities near an address, the blue pin marks the center of your search. It's your home base on the map.</p>
+      </div>
+    </div>
+
+    <h3>The Verified Badge</h3>
+
+    <p>Some facilities have a blue
+      <span class="badge-example">
+        <svg viewBox="0 0 22 22" fill="none"><path d="M20.396 11c.745-.765.745-2.012 0-2.777l-1.084-1.113.17-1.543c.104-.95-.594-1.796-1.544-1.87l-1.55-.121-.776-1.346c-.49-.848-1.592-1.18-2.44-.735L12 2.2l-1.172-.705c-.848-.445-1.95-.113-2.44.735l-.776 1.346-1.55.121c-.95.074-1.648.92-1.544 1.87l.17 1.543L3.604 8.223c-.745.765-.745 2.012 0 2.777l1.084 1.113-.17 1.543c-.104.95.594 1.796 1.544 1.87l1.55.121.776 1.346c.49.848 1.592 1.18 2.44.735L12 16.8l1.172.705c.848.445 1.95.113 2.44-.735l.776-1.346 1.55-.121c.95-.074 1.648-.92 1.544-1.87l-.17-1.543 1.084-1.113z" fill="#1D9BF0"/><path d="M9.64 14.17l-3.32-3.32 1.06-1.06 2.26 2.26 4.93-4.93 1.06 1.06-5.99 5.99z" fill="#fff"/></svg>
+        Verified
+      </span>
+    badge next to their name. This means the facility has actively signed up with Clara and confirmed their information. Verified facilities can update their bed availability, share their capabilities, and keep their listing current.</p>
+
+    <p>The verified badge says "this facility is engaged and responsive." It does <strong>not</strong> change their color rating. A verified facility with uncorrected findings will still show up red. The badge is about participation, not a quality endorsement.</p>
+
+    <p>On the map, verified facilities get a subtle blue glow around their pin so you can spot them easily.</p>
+
+    <h3>Where the Data Comes From</h3>
+
+    <p>Everything starts with the <strong>Washington State Department of Social and Health Services (DSHS)</strong>. They're the agency that licenses and inspects every adult family home, assisted living facility, and enhanced services facility in the state.</p>
+
+    <p>When DSHS inspects a facility, they write up a report. These reports are public record. They list exactly what inspectors looked at, what they found (if anything), and whether the facility corrected the issues. Clara reads these reports so you don't have to.</p>
+
+    <h3>How We Turn Reports Into Colors</h3>
+
+    <div class="process-step">
+      <div class="step-number">1</div>
+      <div class="step-text">
+        <h4>Download the inspection report</h4>
+        <p>Clara pulls the actual PDF documents from the state's public database. These are the same reports you could find yourself on the DSHS website, but scattered across thousands of pages.</p>
+      </div>
+    </div>
+
+    <div class="process-step">
+      <div class="step-number">2</div>
+      <div class="step-text">
+        <h4>Read and understand the text</h4>
+        <p>Some reports are typed, some are scanned paper documents. Clara handles both. For scanned pages, we use optical character recognition (OCR) to read the text from images. For mixed documents (part typed, part scanned), we combine both methods to make sure nothing gets missed.</p>
+      </div>
+    </div>
+
+    <div class="process-step">
+      <div class="step-number">3</div>
+      <div class="step-text">
+        <h4>Summarize with AI</h4>
+        <p>An AI model reads the full inspection text and extracts the key facts: what deficiencies were found, how serious they were, what rules were cited, and most importantly, whether the facility corrected the problems. The AI produces a structured summary that Clara can work with.</p>
+      </div>
+    </div>
+
+    <div class="process-step">
+      <div class="step-number">4</div>
+      <div class="step-text">
+        <h4>Use the most recent result</h4>
+        <p>A facility might have multiple inspections over the years. Clara uses the <strong>most recent report</strong> to determine the color. Why? Because people change. Facilities improve (or don't). What matters most is where things stand right now, not what happened three years ago.</p>
+      </div>
+    </div>
+
+    <div class="process-step">
+      <div class="step-number">5</div>
+      <div class="step-text">
+        <h4>Assign the color</h4>
+        <p>Based on the latest report's overall result, Clara assigns the pin color. "No Findings" = green. "Findings Corrected" = yellow. "Findings Uncorrected" = red. If the data is over a year old, the pin turns gray.</p>
+      </div>
+    </div>
+
+    <div class="callout">
+      <strong>A note about multi-document reports:</strong> Sometimes DSHS bundles multiple documents into one PDF. For example, an initial inspection report might be followed by a compliance letter saying the facility fixed everything. When that happens, Clara treats the compliance letter as the final word, because that's exactly what it is: the state's official follow-up confirming the issues were resolved.
+    </div>
+
+    <h3>The Sentiment Rating</h3>
+
+    <p>When you click on a facility, you'll see a sentiment rating: <strong>Excellent</strong>, <strong>Good</strong>, <strong>Fair</strong>, <strong>Poor</strong>, or <strong>Concerning</strong>. This looks at the bigger picture across all available inspections, not just the latest one.</p>
+
+    <ul>
+      <li><strong>Excellent</strong> — Zero deficiencies found across all inspections. Spotless record.</li>
+      <li><strong>Good</strong> — Only minor issues that were quickly corrected. Nothing to worry about.</li>
+      <li><strong>Fair</strong> — Some moderate issues found. Not great, not terrible.</li>
+      <li><strong>Poor</strong> — Serious issues or uncorrected problems. Worth a closer look.</li>
+      <li><strong>Concerning</strong> — Critical or repeated uncorrected problems. Proceed with caution.</li>
+    </ul>
+
+    <p>You'll also see a <strong>trend</strong> (Improving, Stable, or Declining) that compares recent inspections to older ones. A facility rated "Fair" but trending "Improving" is heading in the right direction.</p>
+
+    <h3>What Clara Doesn't Do</h3>
+
+    <p>We believe in being upfront about what this is and isn't:</p>
+
+    <ul>
+      <li><strong>Clara does not rank facilities.</strong> Two green-pinned facilities are not automatically equal. One might be a perfect fit for your family and the other might not. The colors tell you about inspections, not about whether your mom will like the food.</li>
+      <li><strong>Clara does not replace visiting in person.</strong> No amount of data can tell you what it feels like to walk through the front door. Use Clara to narrow down your list, then go see the places yourself.</li>
+      <li><strong>Clara does not guarantee accuracy.</strong> We do our best to read the state's reports correctly, but these are complex legal documents and our AI, while good, isn't perfect. When in doubt, read the original inspection report (we link to it from each facility's detail page).</li>
+      <li><strong>Clara is not endorsed by DSHS.</strong> We're an independent tool that uses publicly available government data. The state doesn't review or approve our ratings.</li>
+    </ul>
+
+    <h3>How Often Is the Data Updated?</h3>
+
+    <p>Clara checks for new inspection reports every night. When the state publishes a new report, Clara picks it up, reads it, and updates the facility's color. Most facilities are inspected once a year, so don't expect the colors to change frequently. That's normal.</p>
+
+    <h3>Questions?</h3>
+
+    <p>If you spot something that doesn't look right, or you have questions about how a particular facility was rated, reach out to us at <a href="mailto:howto@cutboringwork.com" style="color: var(--brand); font-weight: 600;">howto@cutboringwork.com</a>. We take accuracy seriously and we'll look into it.</p>
+
+  </article>
+
+  <section style="text-align: center; padding: 32px 24px 48px; background: var(--warm-bg);">
+    <p style="font-size: 1.05rem; color: var(--muted); margin-bottom: 16px;">Ready to find the right care facility?</p>
+    <a href="https://clara.cutboringwork.com" style="display: inline-block; background: var(--brand); color: white; padding: 14px 32px; border-radius: 8px; text-decoration: none; font-weight: 600; font-size: 1rem;">Try Clara →</a>
+  </section>
+
+  <footer class="footer">
+    <div class="footer-brand"><span class="footer-logo"><svg viewBox="0 0 64 64" width="24" height="24" xmlns="http://www.w3.org/2000/svg"><rect width="64" height="64" rx="14" fill="rgba(255,255,255,0.15)"/><path d="M21 32a11 11 0 1 1 11 11" fill="none" stroke="white" stroke-width="3.5" stroke-linecap="round"/><circle cx="32" cy="32" r="5" fill="none" stroke="white" stroke-width="2"/><path d="M27 30.5c0-4 3.5-6 6.5-5.5 2.2.4 3.5 2 3.5 4.5" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round"/><path d="M27 30.5v1.5" fill="none" stroke="white" stroke-width="1.6" stroke-linecap="round"/><circle cx="30" cy="32" r="1" fill="white"/><circle cx="34" cy="32" r="1" fill="white"/><path d="M30.5 34.5q1.5 1.5 3 0" fill="none" stroke="white" stroke-width="1.2" stroke-linecap="round"/><path d="M42 22l1-2 1 2 2 1-2 1-1 2-1-2-2-1z" fill="#7ecec6"/></svg></span> Clara</div>
+    <p>Built by <a href="https://cutboringwork.com">EE LLC</a></p>
+    <p style="margin-top: 12px;"><a href="mailto:howto@cutboringwork.com">howto@cutboringwork.com</a></p>
+    <p style="margin-top: 12px;"><a href="/about.html">Our Story</a> · <a href="/methodology.html">How We Rate</a> · <a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a></p>
+  </footer>
+
+</body>
+</html>
