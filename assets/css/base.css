@@ -1,4 +1,6 @@
 /* Base styles shared across all pages */
+html { background-color: #1b4d4a; }
+
 :root {
   --brand: #1b4d4a;
   --brand-dark: #123633;
