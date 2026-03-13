@@ -1,147 +1,59 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="theme-color" content="#1b4d4a">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Privacy Policy — Cut Boring Work</title>
-  <meta name="description" content="Privacy policy for Cut Boring Work and the Clara senior care assistant.">
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:wght@600;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --brand: #1b4d4a;
-      --brand-dark: #123633;
-      --cream: #fdfcf8;
-      --ink: #1a1a1a;
-    }
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'DM Sans', sans-serif; color: var(--ink); background: var(--brand); line-height: 1.7; }
-    .header { background: var(--brand); color: white; padding: 16px 32px; display: flex; align-items: center; justify-content: space-between; }
-    .header-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: white; }
-    .header-brand svg { width: 32px; height: 32px; }
-    .header-brand .brand-logo { position: relative; overflow: hidden; display: inline-flex; border-radius: 10px; }
-    .header-brand .brand-logo::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.4) 50%, transparent 100%);
-      animation: shine 3s ease-in-out infinite;
-    }
-    @keyframes shine {
-      0% { transform: translateX(-100%); }
-      100% { transform: translateX(100%); }
-    }
-    .header-brand h1 { font-family: 'Fraunces', serif; font-size: 20px; font-weight: 700; }
-    .header-nav a { color: rgba(255,255,255,0.7); text-decoration: none; font-size: 15px; margin-left: 24px; transition: color 0.2s; }
-    .header-nav a:hover { color: white; }
-    .content { max-width: 720px; margin: 0 auto; padding: 48px 24px 80px; background: var(--cream); }
-    h1 { font-family: 'Fraunces', serif; font-size: 32px; color: var(--brand); margin-bottom: 8px; }
-    .updated { color: #666; font-size: 14px; margin-bottom: 32px; }
-    h2 { font-family: 'Fraunces', serif; font-size: 22px; color: var(--brand-dark); margin: 32px 0 12px; }
-    p, li { margin-bottom: 12px; font-size: 16px; }
-    ul { padding-left: 24px; }
-    a { color: var(--brand); }
-    .footer { background: var(--brand-dark); color: rgba(255,255,255,0.7); padding: 40px 32px; text-align: center; font-size: 14px; }
-    .footer a { color: rgba(255,255,255,0.9); text-decoration: none; }
-    .footer a:hover { text-decoration: underline; }
-    .footer-brand .footer-logo {
-      position: relative;
-      overflow: hidden;
-      display: inline-flex;
-      border-radius: 10px;
-      vertical-align: middle;
-      margin-right: 6px;
-    }
-    .footer-brand .footer-logo::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.4) 50%, transparent 100%);
-      animation: shine 3s ease-in-out infinite;
-    }
-    .footer-brand {
-      font-family: 'Fraunces', serif;
-      font-size: 18px;
-      color: white;
-      margin-bottom: 8px;
-    }
-    .footer p { margin-top: 8px; }
-    @media (max-width: 768px) {
-      .header { padding: 14px 20px; }
-      .header-nav { display: none; }
-      .content { padding: 32px 16px 48px; }
-      .footer { padding: 32px 20px; }
-    }
-  </style>
-</head>
-<body>
-  <header class="header">
-    <a href="/" class="header-brand">
-      <span class="brand-logo"><svg viewBox="0 0 64 64" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
-        <rect width="64" height="64" rx="14" fill="rgba(255,255,255,0.15)"/>
-        <path d="M21 32a11 11 0 1 1 11 11" fill="none" stroke="white" stroke-width="3.5" stroke-linecap="round"/>
-        <circle cx="32" cy="32" r="5" fill="none" stroke="white" stroke-width="2"/>
-        <path d="M27 30.5c0-4 3.5-6 6.5-5.5 2.2.4 3.5 2 3.5 4.5" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
-        <path d="M27 30.5v1.5" fill="none" stroke="white" stroke-width="1.6" stroke-linecap="round"/>
-        <circle cx="30" cy="32" r="1" fill="white"/>
-        <circle cx="34" cy="32" r="1" fill="white"/>
-        <path d="M30.5 34.5q1.5 1.5 3 0" fill="none" stroke="white" stroke-width="1.2" stroke-linecap="round"/>
-        <path d="M42 22l1-2 1 2 2 1-2 1-1 2-1-2-2-1z" fill="#7ecec6"/>
-      </svg></span>
-      <h1>Clara</h1>
-    </a>
-    <nav class="header-nav">
-      <a href="https://clara.cutboringwork.com">Clara</a>
-      <a href="/about.html">Our Story</a>
-      <a href="mailto:howto@cutboringwork.com">Contact</a>
-    </nav>
-  </header>
-  <main class="content">
-    <h1>Privacy Policy</h1>
-    <p class="updated">Last updated: March 9, 2026</p>
+---
+layout: default
+title: "Privacy Policy — Cut Boring Work"
+description: "Privacy policy for Cut Boring Work and the Clara senior care assistant."
+---
+<style>
+  body { background: var(--cream); }
+  .content {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 48px 24px 80px;
+  }
+  .content h1 { font-family: 'Fraunces', serif; font-size: 32px; color: var(--brand); margin-bottom: 8px; }
+  .content .updated { color: #666; font-size: 14px; margin-bottom: 32px; }
+  .content h2 { font-family: 'Fraunces', serif; font-size: 22px; color: var(--brand-dark); margin: 32px 0 12px; }
+  .content p, .content li { margin-bottom: 12px; font-size: 16px; line-height: 1.7; }
+  .content ul { padding-left: 24px; }
+  .content a { color: var(--brand); }
+  @media (max-width: 768px) { .content { padding: 32px 16px 48px; } }
+</style>
 
-    <p>Cut Boring Work ("we", "us") operates <a href="https://cutboringwork.com">cutboringwork.com</a> and the Clara senior care assistant at <a href="https://clara.cutboringwork.com">clara.cutboringwork.com</a>. This policy describes what data we collect and how we use it.</p>
+<main class="content">
+  <h1>Privacy Policy</h1>
+  <p class="updated">Last updated: March 9, 2026</p>
 
-    <h2>What We Collect</h2>
-    <ul>
-      <li><strong>Google account info:</strong> When you sign in with Google, we receive your name, email address, and profile picture. We use this solely to authenticate you and personalize your experience.</li>
-      <li><strong>Conversations:</strong> Messages you send to Clara are stored to maintain your session history and improve search results. Conversations are tied to your account and not shared with third parties.</li>
-      <li><strong>Search activity:</strong> Facility searches and saved preferences are stored to provide search history and personalized results.</li>
-    </ul>
+  <p>Cut Boring Work ("we", "us") operates <a href="https://cutboringwork.com">cutboringwork.com</a> and the Clara senior care assistant at <a href="https://clara.cutboringwork.com">clara.cutboringwork.com</a>. This policy describes what data we collect and how we use it.</p>
 
-    <h2>What We Don't Collect</h2>
-    <ul>
-      <li>We do not collect health records, medical information, or protected health information (PHI).</li>
-      <li>We do not use tracking pixels, third-party analytics, or advertising cookies.</li>
-      <li>We do not sell, rent, or share your personal data with anyone.</li>
-    </ul>
+  <h2>What We Collect</h2>
+  <ul>
+    <li><strong>Google account info:</strong> When you sign in with Google, we receive your name, email address, and profile picture. We use this solely to authenticate you and personalize your experience.</li>
+    <li><strong>Conversations:</strong> Messages you send to Clara are stored to maintain your session history and improve search results. Conversations are tied to your account and not shared with third parties.</li>
+    <li><strong>Search activity:</strong> Facility searches and saved preferences are stored to provide search history and personalized results.</li>
+  </ul>
 
-    <h2>Facility Data</h2>
-    <p>Facility information displayed in Clara comes from public sources, primarily the Washington State Department of Social and Health Services (DSHS) and Google Places. We do not guarantee the accuracy or completeness of this data. Always verify information directly with facilities.</p>
+  <h2>What We Don't Collect</h2>
+  <ul>
+    <li>We do not collect health records, medical information, or protected health information (PHI).</li>
+    <li>We do not use tracking pixels, third-party analytics, or advertising cookies.</li>
+    <li>We do not sell, rent, or share your personal data with anyone.</li>
+  </ul>
 
-    <h2>Cookies</h2>
-    <p>We use a session cookie to keep you signed in. No advertising or tracking cookies are used.</p>
+  <h2>Facility Data</h2>
+  <p>Facility information displayed in Clara comes from public sources, primarily the Washington State Department of Social and Health Services (DSHS) and Google Places. We do not guarantee the accuracy or completeness of this data. Always verify information directly with facilities.</p>
 
-    <h2>Data Storage</h2>
-    <p>Your data is stored on servers in the United States (Hillsboro, Oregon). We use encryption in transit (TLS) and take reasonable measures to protect your data.</p>
+  <h2>Cookies</h2>
+  <p>We use a session cookie to keep you signed in. No advertising or tracking cookies are used.</p>
 
-    <h2>Data Deletion</h2>
-    <p>You can request deletion of your account and all associated data by emailing <a href="mailto:howto@cutboringwork.com">howto@cutboringwork.com</a>. We will process your request within 30 days.</p>
+  <h2>Data Storage</h2>
+  <p>Your data is stored on servers in the United States (Hillsboro, Oregon). We use encryption in transit (TLS) and take reasonable measures to protect your data.</p>
 
-    <h2>Changes</h2>
-    <p>We may update this policy from time to time. The "Last updated" date at the top will reflect any changes.</p>
+  <h2>Data Deletion</h2>
+  <p>You can request deletion of your account and all associated data by emailing <a href="mailto:howto@cutboringwork.com">howto@cutboringwork.com</a>. We will process your request within 30 days.</p>
 
-    <h2>Contact</h2>
-    <p>Questions? Email us at <a href="mailto:howto@cutboringwork.com">howto@cutboringwork.com</a>.</p>
-  </main>
-  <footer class="footer">
-    <div class="footer-brand"><span class="footer-logo"><svg viewBox="0 0 64 64" width="24" height="24" xmlns="http://www.w3.org/2000/svg"><rect width="64" height="64" rx="14" fill="rgba(255,255,255,0.15)"/><path d="M21 32a11 11 0 1 1 11 11" fill="none" stroke="white" stroke-width="3.5" stroke-linecap="round"/><circle cx="32" cy="32" r="5" fill="none" stroke="white" stroke-width="2"/><path d="M27 30.5c0-4 3.5-6 6.5-5.5 2.2.4 3.5 2 3.5 4.5" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round"/><path d="M27 30.5v1.5" fill="none" stroke="white" stroke-width="1.6" stroke-linecap="round"/><circle cx="30" cy="32" r="1" fill="white"/><circle cx="34" cy="32" r="1" fill="white"/><path d="M30.5 34.5q1.5 1.5 3 0" fill="none" stroke="white" stroke-width="1.2" stroke-linecap="round"/><path d="M42 22l1-2 1 2 2 1-2 1-1 2-1-2-2-1z" fill="#7ecec6"/></svg></span> Clara</div>
-    <p>Built by <a href="https://cutboringwork.com">EE LLC</a></p>
-    <p style="margin-top: 12px;"><a href="mailto:howto@cutboringwork.com">howto@cutboringwork.com</a></p>
-    <p style="margin-top: 12px;"><a href="/about.html">Our Story</a> · <a href="/methodology.html">How We Rate</a> · <a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a></p>
-  </footer>
-</body>
-</html>
+  <h2>Changes</h2>
+  <p>We may update this policy from time to time. The "Last updated" date at the top will reflect any changes.</p>
+
+  <h2>Contact</h2>
+  <p>Questions? Email us at <a href="mailto:howto@cutboringwork.com">howto@cutboringwork.com</a>.</p>
+</main>

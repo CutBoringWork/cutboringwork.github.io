@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="theme-color" content="#1b4d4a">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title | default: "Cut Boring Work" }}</title>
+  {% if page.description %}<meta name="description" content="{{ page.description }}">{% endif %}
+  <meta name="author" content="EE LLC">
+  {% if page.og_title %}<meta property="og:title" content="{{ page.og_title }}">{% endif %}
+  {% if page.og_description %}<meta property="og:description" content="{{ page.og_description }}">{% endif %}
+  {% if page.og_type %}<meta property="og:type" content="{{ page.og_type }}">{% endif %}
+  {% if page.og_url %}<meta property="og:url" content="{{ page.og_url }}">{% endif %}
+  {% if page.og_image %}<meta property="og:image" content="{{ page.og_image }}">{% endif %}
+  {% if page.twitter_card %}<meta name="twitter:card" content="{{ page.twitter_card }}">{% endif %}
+  {% if page.twitter_title %}<meta name="twitter:title" content="{{ page.twitter_title }}">{% endif %}
+  {% if page.twitter_description %}<meta name="twitter:description" content="{{ page.twitter_description }}">{% endif %}
+  {% if page.twitter_image %}<meta name="twitter:image" content="{{ page.twitter_image }}">{% endif %}
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="/logo-192.png" type="image/png" sizes="192x192">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+  {% if page.canonical %}<link rel="canonical" href="{{ page.canonical }}">{% endif %}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/css/base.css">
+  {% if page.extra_css %}
+  <style>
+    {{ page.extra_css }}
+  </style>
+  {% endif %}
+</head>
+<body>
+  {% unless page.hide_header %}{% include header.html %}{% endunless %}
+  {{ content }}
+  {% unless page.hide_footer %}{% include footer.html %}{% endunless %}
+</body>
+</html>

@@ -1,0 +1,113 @@
+/* Base styles shared across all pages */
+:root {
+  --brand: #1b4d4a;
+  --brand-dark: #123633;
+  --brand-light: #2a7a75;
+  --cream: #fdfcf8;
+  --warm-bg: #f5efe0;
+  --ink: #1a1a1a;
+  --muted: #6b6b6b;
+  --border: #e8e2d6;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--brand);
+  color: var(--ink);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Header */
+.header {
+  background: var(--brand);
+  color: white;
+  padding: 16px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+  color: white;
+}
+.header-brand svg { width: 32px; height: 32px; }
+.header-brand .brand-logo {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  border-radius: 10px;
+}
+.header-brand .brand-logo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.4) 50%, transparent 100%);
+  animation: shine 3s ease-in-out infinite;
+}
+@keyframes shine {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+.header-brand h1 {
+  font-family: 'Fraunces', serif;
+  font-size: 20px;
+  font-weight: 700;
+}
+.header-nav a {
+  color: rgba(255,255,255,0.85);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 500;
+  margin-left: 24px;
+  transition: color 0.2s;
+}
+.header-nav a:hover { color: white; }
+
+/* Footer */
+.footer {
+  background: var(--brand-dark);
+  color: rgba(255,255,255,0.7);
+  padding: 40px 32px;
+  text-align: center;
+  font-size: 14px;
+}
+.footer a {
+  color: rgba(255,255,255,0.9);
+  text-decoration: none;
+}
+.footer a:hover { text-decoration: underline; }
+.footer-brand .footer-logo {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  border-radius: 10px;
+  vertical-align: middle;
+  margin-right: 6px;
+}
+.footer-brand .footer-logo::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.4) 50%, transparent 100%);
+  animation: shine 3s ease-in-out infinite;
+}
+.footer-brand {
+  font-family: 'Fraunces', serif;
+  font-size: 18px;
+  color: white;
+  margin-bottom: 8px;
+}
+.footer p { margin-top: 8px; }
+
+/* Responsive */
+@media (max-width: 768px) {
+  .header { padding: 14px 20px; }
+  .header-nav { display: none; }
+  .footer { padding: 32px 20px; }
+}

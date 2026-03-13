@@ -1,0 +1,5 @@
+title: Cut Boring Work
+url: https://cutboringwork.com
+exclude:
+  - README.md
+  - LICENSE

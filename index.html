@@ -1,499 +1,280 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="theme-color" content="#1b4d4a">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Cut Boring Work — Senior Care, Simplified</title>
-  <meta name="description" content="Cut Boring Work builds tools that simplify senior care placement. Our flagship product, CarePatrol Clara, helps families find the right care facility in Washington State.">
-  <meta name="author" content="EE LLC">
-  <meta property="og:title" content="Cut Boring Work">
-  <meta property="og:description" content="Senior care placement, simplified. AI-powered tools for families and care professionals.">
-  <meta property="og:type" content="website">
-  <meta property="og:url" content="https://cutboringwork.com">
-  <meta property="og:image" content="https://cutboringwork.com/og-image.png">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Cut Boring Work">
-  <meta name="twitter:description" content="Senior care placement, simplified.">
-  <meta name="twitter:image" content="https://cutboringwork.com/og-image.png">
-  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
-  <link rel="icon" href="/logo-192.png" type="image/png" sizes="192x192">
-  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-  <link rel="canonical" href="https://cutboringwork.com">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Fraunces:wght@600;700&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --brand: #1b4d4a;
-      --brand-dark: #123633;
-      --brand-light: #2a7a75;
-      --cream: #fdfcf8;
-      --warm-bg: #f5efe0;
-      --ink: #1a1a1a;
-      --muted: #6b6b6b;
-      --border: #e8e2d6;
-    }
+---
+layout: default
+title: "Cut Boring Work"
+description: "Senior care placement, simplified. AI-powered tools for families and care professionals."
+og_title: "Cut Boring Work"
+og_description: "Senior care placement, simplified. AI-powered tools for families and care professionals."
+og_type: "website"
+og_url: "https://cutboringwork.com"
+og_image: "https://cutboringwork.com/og-image.png"
+twitter_card: "summary_large_image"
+twitter_title: "Cut Boring Work"
+twitter_description: "Senior care placement, simplified."
+twitter_image: "https://cutboringwork.com/og-image.png"
+canonical: "https://cutboringwork.com"
+---
+<style>
+  /* Hero */
+  .hero {
+    background: linear-gradient(180deg, var(--brand) 0%, var(--brand-dark) 100%);
+    color: white;
+    padding: 80px 32px 100px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: var(--brand);
+    border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+  }
+  .hero h2 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hero p {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    color: rgba(255,255,255,0.8);
+    max-width: 550px;
+    margin: 0 auto 32px;
+    line-height: 1.6;
+  }
+  .hero-cta {
+    display: inline-block;
+    background: white;
+    color: var(--brand);
+    font-weight: 700;
+    font-size: 16px;
+    padding: 14px 32px;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  }
+  .hero-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+  }
 
-    * { margin: 0; padding: 0; box-sizing: border-box; }
+  /* Product */
+  .product {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 60px 32px;
+  }
+  .product-card {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.06);
+    border: 1px solid var(--border);
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+  }
+  .product-info {
+    padding: 48px 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .product-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, #fff8e7, #fdfcf8);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    padding: 6px 14px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--brand);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 16px;
+    width: fit-content;
+  }
+  .product-info h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 12px;
+  }
+  .product-info p {
+    font-size: 15px;
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 24px;
+  }
+  .product-features {
+    list-style: none;
+    margin-bottom: 28px;
+  }
+  .product-features li {
+    font-size: 14px;
+    color: var(--ink);
+    padding: 6px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .product-features li::before {
+    content: '✓';
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    background: var(--brand);
+    color: white;
+    border-radius: 50%;
+    font-size: 12px;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+  .product-link {
+    display: inline-block;
+    background: var(--brand);
+    color: white;
+    font-weight: 600;
+    font-size: 15px;
+    padding: 12px 28px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: background 0.2s;
+    width: fit-content;
+  }
+  .product-link:hover { background: var(--brand-dark); }
+  .product-visual {
+    background: linear-gradient(135deg, #e8f4f3 0%, #d4ece9 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px;
+    min-height: 400px;
+  }
+  .product-visual img {
+    width: 100%;
+    max-width: 380px;
+    border-radius: 12px;
+    box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+  }
 
-    body {
-      font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: var(--brand);
-      color: var(--ink);
-      min-height: 100vh;
-      -webkit-font-smoothing: antialiased;
-    }
+  /* Values */
+  .values {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px 32px 80px;
+  }
+  .values h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 24px;
+    text-align: center;
+    margin-bottom: 40px;
+    color: var(--ink);
+  }
+  .values-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .value-card {
+    background: white;
+    border-radius: 16px;
+    padding: 28px 24px;
+    border: 1px solid var(--border);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+  }
+  .value-icon {
+    width: 44px;
+    height: 44px;
+    background: linear-gradient(135deg, #e8f4f3, #d4ece9);
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+  .value-card h4 {
+    font-size: 16px;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: var(--ink);
+  }
+  .value-card p {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
 
-    /* Header */
-    .header {
-      background: var(--brand);
-      color: white;
-      padding: 16px 32px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-    }
-    .header-brand {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      text-decoration: none;
-      color: white;
-    }
-    .header-brand svg { width: 32px; height: 32px; }
-    .header-brand .brand-logo {
-      position: relative;
-      overflow: hidden;
-      display: inline-flex;
-      border-radius: 10px;
-    }
-    .header-brand .brand-logo::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.4) 50%, transparent 100%);
-      animation: shine 3s ease-in-out infinite;
-    }
-    @keyframes shine {
-      0% { transform: translateX(-100%); }
-      100% { transform: translateX(100%); }
-    }
-    .header-brand h1 {
-      font-family: 'Fraunces', serif;
-      font-size: 20px;
-      font-weight: 700;
-    }
-    .header-nav a {
-      color: rgba(255,255,255,0.85);
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: 500;
-      margin-left: 24px;
-      transition: color 0.2s;
-    }
-    .header-nav a:hover { color: white; }
+  @media (max-width: 768px) {
+    .hero { padding: 60px 20px 80px; }
+    .product { padding: 40px 20px; }
+    .product-card { grid-template-columns: 1fr; }
+    .product-visual { min-height: 280px; padding: 32px 20px; }
+    .product-info { padding: 32px 24px; }
+    .values { padding: 20px 20px 60px; }
+    .values-grid { grid-template-columns: 1fr; }
+  }
+</style>
 
-    /* Hero */
-    .hero {
-      background: linear-gradient(180deg, var(--brand) 0%, var(--brand-dark) 100%);
-      color: white;
-      padding: 80px 32px 100px;
-      text-align: center;
-      position: relative;
-      overflow: hidden;
-    }
-    .hero::after {
-      content: '';
-      position: absolute;
-      bottom: -2px;
-      left: 0;
-      right: 0;
-      height: 60px;
-      background: var(--brand);
-      border-radius: 50% 50% 0 0 / 100% 100% 0 0;
-    }
-    .hero h2 {
-      font-family: 'Fraunces', serif;
-      font-size: clamp(2rem, 5vw, 3.5rem);
-      font-weight: 700;
-      line-height: 1.2;
-      margin-bottom: 20px;
-      max-width: 700px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    .hero p {
-      font-size: clamp(1rem, 2vw, 1.25rem);
-      color: rgba(255,255,255,0.8);
-      max-width: 550px;
-      margin: 0 auto 32px;
-      line-height: 1.6;
-    }
-    .hero-cta {
-      display: inline-block;
-      background: white;
-      color: var(--brand);
-      font-weight: 700;
-      font-size: 16px;
-      padding: 14px 32px;
-      border-radius: 12px;
-      text-decoration: none;
-      transition: transform 0.2s, box-shadow 0.2s;
-      box-shadow: 0 4px 16px rgba(0,0,0,0.15);
-    }
-    .hero-cta:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
-    }
+<section class="hero">
+  <h2>Senior Care Placement, Simplified</h2>
+  <p>We build AI-powered tools that help families and care professionals find the right care facilities, faster.</p>
+  <a href="https://clara.cutboringwork.com" class="hero-cta">Try Clara Free →</a>
+</section>
 
-    /* Product section */
-    .product {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 60px 32px;
-    }
-    .product-card {
-      background: white;
-      border-radius: 20px;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.06);
-      border: 1px solid var(--border);
-      overflow: hidden;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0;
-    }
-    .product-info {
-      padding: 48px 40px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
-    .product-badge {
-      display: inline-block;
-      background: linear-gradient(135deg, #fff8e7, #fdfcf8);
-      border: 1px solid var(--border);
-      border-radius: 999px;
-      padding: 6px 14px;
-      font-size: 12px;
-      font-weight: 600;
-      color: var(--brand);
-      text-transform: uppercase;
-      letter-spacing: 0.5px;
-      margin-bottom: 16px;
-      width: fit-content;
-    }
-    .product-info h3 {
-      font-family: 'Fraunces', serif;
-      font-size: 28px;
-      font-weight: 700;
-      color: var(--ink);
-      margin-bottom: 12px;
-    }
-    .product-info p {
-      font-size: 15px;
-      color: var(--muted);
-      line-height: 1.7;
-      margin-bottom: 24px;
-    }
-    .product-features {
-      list-style: none;
-      margin-bottom: 28px;
-    }
-    .product-features li {
-      font-size: 14px;
-      color: var(--ink);
-      padding: 6px 0;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .product-features li::before {
-      content: '✓';
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 22px;
-      height: 22px;
-      background: var(--brand);
-      color: white;
-      border-radius: 50%;
-      font-size: 12px;
-      font-weight: 700;
-      flex-shrink: 0;
-    }
-    .product-link {
-      display: inline-block;
-      background: var(--brand);
-      color: white;
-      font-weight: 600;
-      font-size: 15px;
-      padding: 12px 28px;
-      border-radius: 10px;
-      text-decoration: none;
-      transition: background 0.2s;
-      width: fit-content;
-    }
-    .product-link:hover { background: var(--brand-dark); }
-    .product-visual {
-      background: linear-gradient(135deg, #e8f4f3 0%, #d4ece9 100%);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 40px;
-      min-height: 400px;
-    }
-    .product-visual img {
-      width: 100%;
-      max-width: 380px;
-      border-radius: 12px;
-      box-shadow: 0 12px 40px rgba(0,0,0,0.12);
-    }
-    .product-visual .mockup {
-      background: white;
-      border-radius: 16px;
-      padding: 16px;
-      box-shadow: 0 12px 40px rgba(0,0,0,0.12);
-      width: 100%;
-      max-width: 340px;
-    }
-    .mockup-header {
-      background: var(--brand);
-      border-radius: 10px 10px 0 0;
-      padding: 12px 16px;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
-    .mockup-header .dot { width: 8px; height: 8px; border-radius: 50%; }
-    .mockup-header .dot-r { background: #ff5f57; }
-    .mockup-header .dot-y { background: #ffbd2e; }
-    .mockup-header .dot-g { background: #28ca42; }
-    .mockup-header span {
-      color: rgba(255,255,255,0.7);
-      font-size: 11px;
-      margin-left: auto;
-    }
-    .mockup-body {
-      background: var(--brand);
-      border-radius: 0 0 10px 10px;
-      padding: 20px;
-      min-height: 200px;
-    }
-    .mockup-map {
-      background: linear-gradient(135deg, #d4ece9, #e8f4f3);
-      border-radius: 8px;
-      height: 120px;
-      margin-bottom: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 28px;
-    }
-    .mockup-row {
-      display: flex;
-      gap: 8px;
-      margin-bottom: 8px;
-    }
-    .mockup-pill {
-      background: var(--brand);
-      color: white;
-      font-size: 10px;
-      padding: 4px 10px;
-      border-radius: 999px;
-      font-weight: 600;
-    }
-    .mockup-pill-outline {
-      background: transparent;
-      color: var(--brand);
-      border: 1px solid var(--brand);
-      font-size: 10px;
-      padding: 4px 10px;
-      border-radius: 999px;
-      font-weight: 600;
-    }
-
-    /* Values */
-    .values {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 20px 32px 80px;
-    }
-    .values h3 {
-      font-family: 'Fraunces', serif;
-      font-size: 24px;
-      text-align: center;
-      margin-bottom: 40px;
-      color: var(--ink);
-    }
-    .values-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 24px;
-    }
-    .value-card {
-      background: white;
-      border-radius: 16px;
-      padding: 28px 24px;
-      border: 1px solid var(--border);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
-    }
-    .value-icon {
-      width: 44px;
-      height: 44px;
-      background: linear-gradient(135deg, #e8f4f3, #d4ece9);
-      border-radius: 12px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 20px;
-      margin-bottom: 16px;
-    }
-    .value-card h4 {
-      font-size: 16px;
-      font-weight: 700;
-      margin-bottom: 8px;
-      color: var(--ink);
-    }
-    .value-card p {
-      font-size: 14px;
-      color: var(--muted);
-      line-height: 1.6;
-    }
-
-    /* Footer */
-    .footer {
-      background: var(--brand-dark);
-      color: rgba(255,255,255,0.7);
-      padding: 40px 32px;
-      text-align: center;
-      font-size: 14px;
-    }
-    .footer a {
-      color: rgba(255,255,255,0.9);
-      text-decoration: none;
-    }
-    .footer a:hover { text-decoration: underline; }
-    
-
-    .footer-brand .footer-logo {
-      position: relative;
-      overflow: hidden;
-      display: inline-flex;
-      border-radius: 10px;
-      vertical-align: middle;
-      margin-right: 6px;
-    }
-    .footer-brand .footer-logo::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(90deg, transparent 0%, rgba(255,255,255,0.4) 50%, transparent 100%);
-      animation: shine 3s ease-in-out infinite;
-    }
-    .footer-brand {
-      font-family: 'Fraunces', serif;
-      font-size: 18px;
-      color: white;
-      margin-bottom: 8px;
-    }
-    .footer p { margin-top: 8px; }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      .header { padding: 14px 20px; }
-      .header-nav { display: none; }
-      .hero { padding: 60px 20px 80px; }
-      .product { padding: 40px 20px; }
-      .product-card { grid-template-columns: 1fr; }
-      .product-visual { min-height: 280px; padding: 32px 20px; }
-      .product-info { padding: 32px 24px; }
-      .values { padding: 20px 20px 60px; }
-      .values-grid { grid-template-columns: 1fr; }
-      .footer { padding: 32px 20px; }
-    }
-  </style>
-</head>
-<body>
-
-  <header class="header">
-    <a href="/" class="header-brand">
-      <span class="brand-logo"><svg viewBox="0 0 64 64" width="32" height="32" xmlns="http://www.w3.org/2000/svg">
-        <rect width="64" height="64" rx="14" fill="rgba(255,255,255,0.15)"/>
-        <path d="M21 32a11 11 0 1 1 11 11" fill="none" stroke="white" stroke-width="3.5" stroke-linecap="round"/>
-        <circle cx="32" cy="32" r="5" fill="none" stroke="white" stroke-width="2"/>
-        <path d="M27 30.5c0-4 3.5-6 6.5-5.5 2.2.4 3.5 2 3.5 4.5" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
-        <path d="M27 30.5v1.5" fill="none" stroke="white" stroke-width="1.6" stroke-linecap="round"/>
-        <circle cx="30" cy="32" r="1" fill="white"/>
-        <circle cx="34" cy="32" r="1" fill="white"/>
-        <path d="M30.5 34.5q1.5 1.5 3 0" fill="none" stroke="white" stroke-width="1.2" stroke-linecap="round"/>
-        <path d="M42 22l1-2 1 2 2 1-2 1-1 2-1-2-2-1z" fill="#7ecec6"/>
-      </svg></span>
-      <h1>Clara</h1>
-    </a>
-    <nav class="header-nav">
-      <a href="https://clara.cutboringwork.com">Clara</a>
-      <a href="/about.html">Our Story</a>
-      <a href="mailto:howto@cutboringwork.com">Contact</a>
-    </nav>
-  </header>
-
-  <section class="hero">
-    <h2>Senior Care Placement, Simplified</h2>
-    <p>We build AI-powered tools that help families and care professionals find the right care facilities, faster.</p>
-    <a href="https://clara.cutboringwork.com" class="hero-cta">Try Clara Free →</a>
-  </section>
-
-  <div style="background:var(--cream)">
-  <section class="product">
-    <div class="product-card">
-      <div class="product-info">
-        <div class="product-badge">Flagship Product</div>
-        <h3>Clara for CarePatrol</h3>
-        <p>An AI assistant that helps you search, compare, and evaluate senior care facilities across Washington State. Real inspection data, real-time maps, intelligent recommendations.</p>
-        <ul class="product-features">
-          <li>Interactive map with 5,000+ facilities</li>
-          <li>State inspection data and sentiment analysis</li>
-          <li>Side-by-side facility comparison</li>
-          <li>PDF reports for families and referral partners</li>
-          <li>AI chat for natural-language search</li>
-        </ul>
-        <a href="https://clara.cutboringwork.com" class="product-link">Open Clara →</a>
-      </div>
-      <div class="product-visual">
-        <img src="/clara-screenshot.jpg" alt="Clara - Senior Care Assistant">
-      </div>
+<div style="background:var(--cream)">
+<section class="product">
+  <div class="product-card">
+    <div class="product-info">
+      <div class="product-badge">Flagship Product</div>
+      <h3>Clara for CarePatrol</h3>
+      <p>An AI assistant that helps you search, compare, and evaluate senior care facilities across Washington State. Real inspection data, real-time maps, intelligent recommendations.</p>
+      <ul class="product-features">
+        <li>Interactive map with 5,000+ facilities</li>
+        <li>State inspection data and sentiment analysis</li>
+        <li>Side-by-side facility comparison</li>
+        <li>PDF reports for families and referral partners</li>
+        <li>AI chat for natural-language search</li>
+      </ul>
+      <a href="https://clara.cutboringwork.com" class="product-link">Open Clara →</a>
     </div>
-  </section>
-
-  <section class="values">
-    <h3>Why We Build This</h3>
-    <div class="values-grid">
-      <div class="value-card">
-        <div class="value-icon">🏠</div>
-        <h4>Family-First</h4>
-        <p>Finding care for a loved one is stressful enough. Our tools surface the information that matters so families can make confident decisions.</p>
-      </div>
-      <div class="value-card">
-        <div class="value-icon">📊</div>
-        <h4>Data-Driven</h4>
-        <p>Every facility listing includes real state inspection data, deficiency reports, and AI-generated sentiment analysis. No guesswork.</p>
-      </div>
-      <div class="value-card">
-        <div class="value-icon">🤖</div>
-        <h4>AI That Helps</h4>
-        <p>Clara isn't a chatbot pretending to be helpful. It's a purpose-built tool that understands senior care terminology and facility types.</p>
-      </div>
+    <div class="product-visual">
+      <img src="/clara-screenshot.jpg" alt="Clara - Senior Care Assistant">
     </div>
-  </section>
-
   </div>
-  <footer class="footer">
-    <div class="footer-brand"><span class="footer-logo"><svg viewBox="0 0 64 64" width="24" height="24" xmlns="http://www.w3.org/2000/svg" ><rect width="64" height="64" rx="14" fill="rgba(255,255,255,0.15)"/><path d="M21 32a11 11 0 1 1 11 11" fill="none" stroke="white" stroke-width="3.5" stroke-linecap="round"/><circle cx="32" cy="32" r="5" fill="none" stroke="white" stroke-width="2"/><path d="M27 30.5c0-4 3.5-6 6.5-5.5 2.2.4 3.5 2 3.5 4.5" fill="none" stroke="white" stroke-width="1.8" stroke-linecap="round"/><path d="M27 30.5v1.5" fill="none" stroke="white" stroke-width="1.6" stroke-linecap="round"/><circle cx="30" cy="32" r="1" fill="white"/><circle cx="34" cy="32" r="1" fill="white"/><path d="M30.5 34.5q1.5 1.5 3 0" fill="none" stroke="white" stroke-width="1.2" stroke-linecap="round"/><path d="M42 22l1-2 1 2 2 1-2 1-1 2-1-2-2-1z" fill="#7ecec6"/></svg></span> Clara</div>
-    <p>Built by <a href="https://cutboringwork.com">EE LLC</a></p>
-    <p style="margin-top: 12px;"><a href="mailto:howto@cutboringwork.com">howto@cutboringwork.com</a></p>
-    <p style="margin-top: 12px;"><a href="/about.html">Our Story</a> · <a href="/methodology.html">How We Rate</a> · <a href="/privacy.html">Privacy</a> · <a href="/terms.html">Terms</a></p>
-  </footer>
+</section>
 
-</body>
-</html>
+<section class="values">
+  <h3>Why We Build This</h3>
+  <div class="values-grid">
+    <div class="value-card">
+      <div class="value-icon">🏠</div>
+      <h4>Family-First</h4>
+      <p>Finding care for a loved one is stressful enough. Our tools surface the information that matters so families can make confident decisions.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-icon">📊</div>
+      <h4>Data-Driven</h4>
+      <p>Every facility listing includes real state inspection data, deficiency reports, and AI-generated sentiment analysis. No guesswork.</p>
+    </div>
+    <div class="value-card">
+      <div class="value-icon">🤖</div>
+      <h4>AI That Helps</h4>
+      <p>Clara isn't a chatbot pretending to be helpful. It's a purpose-built tool that understands senior care terminology and facility types.</p>
+    </div>
+  </div>
+</section>
+</div>
