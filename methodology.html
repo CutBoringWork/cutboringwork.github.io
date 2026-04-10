@@ -1,0 +1,301 @@
+---
+layout: default
+title: "How Clara Rates Facilities — Cut Boring Work"
+description: "What the map colors mean, where the data comes from, and how Clara keeps it honest."
+---
+<style>
+  body { background: var(--cream); }
+  .page-hero {
+    background: linear-gradient(180deg, var(--brand) 0%, var(--brand-dark) 100%);
+    color: white;
+    padding: 60px 32px 48px;
+    text-align: center;
+  }
+  .page-hero h2 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 12px;
+  }
+  .page-hero p {
+    font-size: 1.05rem;
+    color: rgba(255,255,255,0.8);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  .content {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 48px 24px 64px;
+    line-height: 1.75;
+    font-size: 16px;
+  }
+  .content h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin: 48px 0 16px;
+    color: var(--brand);
+  }
+  .content h3:first-of-type { margin-top: 0; }
+  .content p { margin-bottom: 16px; }
+  .content ul, .content ol { margin: 0 0 16px 24px; }
+  .content li { margin-bottom: 8px; }
+  .content a { color: var(--brand); font-weight: 600; }
+  .marker-card {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+    margin: 16px 0;
+  }
+  .marker-icon { flex-shrink: 0; width: 28px; height: 44px; }
+  .marker-icon img { width: 28px; height: auto; }
+  .marker-text h4 { font-weight: 700; font-size: 1rem; margin-bottom: 4px; }
+  .marker-text p { margin: 0; font-size: 15px; color: var(--muted); }
+  .badge-example {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    background: #EBF5FE;
+    color: #1D9BF0;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 3px 10px 3px 6px;
+    border-radius: 14px;
+    vertical-align: middle;
+  }
+  .badge-example svg { width: 16px; height: 16px; flex-shrink: 0; }
+  .process-step {
+    display: flex;
+    gap: 16px;
+    margin: 20px 0;
+  }
+  .step-number {
+    flex-shrink: 0;
+    width: 36px;
+    height: 36px;
+    background: var(--brand);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.9rem;
+  }
+  .step-text h4 { font-weight: 600; margin-bottom: 2px; }
+  .step-text p { margin: 0; font-size: 15px; color: var(--muted); }
+  .callout {
+    background: var(--warm-bg);
+    border-left: 4px solid var(--brand);
+    padding: 16px 20px;
+    border-radius: 0 8px 8px 0;
+    margin: 24px 0;
+    font-size: 15px;
+  }
+  .method-cta {
+    text-align: center;
+    padding: 32px 24px 48px;
+    background: var(--warm-bg);
+  }
+  .method-cta p {
+    font-size: 16px;
+    color: var(--muted);
+    margin-bottom: 16px;
+  }
+  .method-cta a {
+    display: inline-block;
+    background: var(--brand);
+    color: white;
+    padding: 14px 32px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1rem;
+  }
+  .method-cta a:hover { background: var(--brand-dark); }
+  @media (max-width: 768px) {
+    .page-hero { padding: 40px 20px 32px; }
+    .content { padding: 32px 16px 48px; }
+    .marker-card { flex-direction: column; gap: 10px; }
+    .process-step { flex-direction: column; gap: 8px; }
+    .method-cta { padding: 24px 20px 36px; }
+  }
+</style>
+
+<section class="page-hero">
+  <h2>How Clara Rates Facilities</h2>
+  <p>What the map colors mean, where the data comes from, and how we keep it honest.</p>
+</section>
+
+<article class="content">
+
+  <h3>The Short Version</h3>
+  <p>Every pin on Clara's map is a real, licensed care facility in Washington State. The color of the pin tells you how their most recent state inspection went. That's it. No opinion, no guesswork. Just what the state found.</p>
+
+  <h3>What the Colors Mean</h3>
+
+  <div class="marker-card">
+    <div class="marker-icon"><img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-green.png" alt="Green marker"></div>
+    <div class="marker-text">
+      <h4>🟢 Green — No Findings</h4>
+      <p>The state inspected this facility and found nothing wrong. Clean bill of health on their latest inspection. This is the best result a facility can get.</p>
+    </div>
+  </div>
+
+  <div class="marker-card">
+    <div class="marker-icon"><img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-yellow.png" alt="Yellow marker"></div>
+    <div class="marker-text">
+      <h4>🟡 Yellow — Findings Corrected</h4>
+      <p>Inspectors found some issues, but the facility fixed them. Think of it like getting a note from the teacher but doing your homework to make it right. The problems were real, but they've been resolved.</p>
+    </div>
+  </div>
+
+  <div class="marker-card">
+    <div class="marker-icon"><img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-red.png" alt="Red marker"></div>
+    <div class="marker-text">
+      <h4>🔴 Red — Findings Uncorrected</h4>
+      <p>Inspectors found problems and the facility has <strong>not yet fixed them</strong> according to the state's published records. Red pins only stay red if the issues are serious or recent (less than 6 months old). If the problems were minor and the inspection was more than 6 months ago, the pin turns yellow instead, because the facility most likely fixed the issues but the state just hasn't published the follow-up paperwork yet. If you see red, it's worth digging into the details before making a decision.</p>
+    </div>
+  </div>
+
+  <div class="marker-card">
+    <div class="marker-icon"><img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-grey.png" alt="Gray marker"></div>
+    <div class="marker-text">
+      <h4>⚪ Gray — No Recent Data</h4>
+      <p>We don't have a recent inspection on file for this facility. Either their last inspection was over 12 months ago, or the state hasn't published the results yet. Gray doesn't mean good or bad. It just means we can't tell you right now.</p>
+    </div>
+  </div>
+
+  <div class="marker-card">
+    <div class="marker-icon"><img src="https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-2x-blue.png" alt="Blue marker"></div>
+    <div class="marker-text">
+      <h4>🔵 Blue — Your Location</h4>
+      <p>This one's just you! When you search for facilities near an address, the blue pin marks the center of your search. It's your home base on the map.</p>
+    </div>
+  </div>
+
+  <h3>Verified Facilities</h3>
+
+  <p>Some facilities have a blue circle around their map pin and a
+    <span class="badge-example">
+      <svg viewBox="0 0 16 16" fill="none" width="16" height="16"><circle cx="8" cy="8" r="6" fill="#1D9BF0"/></svg>
+      Verified
+    </span>
+  label in their detail panel. This means the facility has actively signed up with Clara, confirmed their information, and can keep their listing current — including bed availability, rates, care capabilities, and amenities.</p>
+
+  <p>Verified means "this facility is engaged and responsive." It does <strong>not</strong> change their color rating. A verified facility with uncorrected findings will still show up red. Verification is about participation, not a quality endorsement.</p>
+
+  <p>Facilities that are both verified and contracted by a subscriber show two rings on the map: a blue inner ring (verified) and a green outer ring (contracted).</p>
+
+  <h3>Where the Data Comes From</h3>
+
+  <p>Everything starts with the <strong>Washington State Department of Social and Health Services (DSHS)</strong>. They're the agency that licenses and inspects every adult family home, assisted living facility, and enhanced services facility in the state.</p>
+
+  <p>When DSHS inspects a facility, they write up a report. These reports are public record. They list exactly what inspectors looked at, what they found (if anything), and whether the facility corrected the issues. Clara reads these reports so you don't have to.</p>
+
+  <h3>How We Turn Reports Into Colors</h3>
+
+  <div class="process-step">
+    <div class="step-number">1</div>
+    <div class="step-text">
+      <h4>Download the inspection report</h4>
+      <p>Clara pulls the actual PDF documents from the state's public database. These are the same reports you could find yourself on the DSHS website, but scattered across thousands of pages.</p>
+    </div>
+  </div>
+
+  <div class="process-step">
+    <div class="step-number">2</div>
+    <div class="step-text">
+      <h4>Read and understand the text</h4>
+      <p>Some reports are typed, some are scanned paper documents. Clara handles both. For scanned pages, we use optical character recognition (OCR) to read the text from images. For mixed documents (part typed, part scanned), we combine both methods to make sure nothing gets missed.</p>
+    </div>
+  </div>
+
+  <div class="process-step">
+    <div class="step-number">3</div>
+    <div class="step-text">
+      <h4>Summarize with AI</h4>
+      <p>An AI model reads the full inspection text and extracts the key facts: what deficiencies were found, how serious they were, what rules were cited, and most importantly, whether the facility corrected the problems. The AI produces a structured summary that Clara can work with.</p>
+    </div>
+  </div>
+
+  <div class="process-step">
+    <div class="step-number">4</div>
+    <div class="step-text">
+      <h4>Use the most recent result</h4>
+      <p>A facility might have multiple inspections over the years. Clara uses the <strong>most recent report</strong> to determine the color. Why? Because people change. Facilities improve (or don't). What matters most is where things stand right now, not what happened three years ago.</p>
+    </div>
+  </div>
+
+  <div class="process-step">
+    <div class="step-number">5</div>
+    <div class="step-text">
+      <h4>Assign the color</h4>
+      <p>Based on the latest report's overall result, Clara assigns the pin color. "No Findings" = green. "Findings Corrected" = yellow. "Findings Uncorrected" = red. If the data is over two years old, the pin turns gray.</p>
+      <p>There's one extra step: if a facility shows "Findings Uncorrected" but the inspection was more than 6 months ago and the issues were minor (not serious or critical), Clara softens the color from red to yellow. Why? Because the state often takes months to publish the follow-up letter that confirms corrections were made. It wouldn't be fair to keep a facility red for a minor issue that was almost certainly fixed months ago, just because the paperwork is slow. Serious or critical findings always stay red, no matter how old they are.</p>
+    </div>
+  </div>
+
+  <div class="callout">
+    <strong>A note about multi-document reports:</strong> Sometimes DSHS bundles multiple documents into one PDF. For example, an initial inspection report might be followed by a compliance letter saying the facility fixed everything. When that happens, Clara treats the compliance letter as the final word, because that's exactly what it is: the state's official follow-up confirming the issues were resolved.
+  </div>
+
+  <h3>The Sentiment Rating</h3>
+
+  <p>When you click on a facility, you'll see a sentiment rating: <strong>Excellent</strong>, <strong>Good</strong>, <strong>Fair</strong>, <strong>Poor</strong>, or <strong>Concerning</strong>. This looks at the bigger picture across all available inspections, not just the latest one.</p>
+
+  <ul>
+    <li><strong>Excellent</strong> — Zero deficiencies found across all inspections. Spotless record.</li>
+    <li><strong>Good</strong> — Only minor issues that were quickly corrected. Nothing to worry about.</li>
+    <li><strong>Fair</strong> — Some moderate issues found. Not great, not terrible.</li>
+    <li><strong>Poor</strong> — Serious issues or uncorrected problems. Worth a closer look.</li>
+    <li><strong>Concerning</strong> — Critical or repeated uncorrected problems. Proceed with caution.</li>
+  </ul>
+
+  <p>You'll also see a <strong>trend</strong> (Improving, Stable, or Declining) that compares recent inspections to older ones. A facility rated "Fair" but trending "Improving" is heading in the right direction.</p>
+
+  <h3>AI Chat</h3>
+
+  <p>When you chat with Clara, your questions are processed by an AI assistant that has access to our full facility database, inspection reports, and public data. Clara can answer questions about facility types, explain inspection findings, compare options, and help you narrow your search. All chat responses are AI-generated and should be verified against official records.</p>
+
+  <h3>Automated Calls</h3>
+
+  <p>Clara can call facilities on your behalf to ask about availability, services, and other details. These calls are conducted by an AI voice assistant, recorded, and transcribed automatically. Call transcriptions and summaries are AI-generated and may contain errors — always confirm important details directly with the facility.</p>
+
+  <h3>Disclosure of Services</h3>
+
+  <p>Disclosure of Services data is sourced from documents filed by facilities with Washington State DSHS. Clara extracts and displays this information using AI — verify details directly with the facility.</p>
+
+  <h3>What Clara Doesn't Do</h3>
+
+  <p>We believe in being upfront about what this is and isn't:</p>
+
+  <ul>
+    <li><strong>Clara does not rank facilities.</strong> Two green-pinned facilities are not automatically equal. One might be a perfect fit for your family and the other might not. The colors tell you about inspections, not about whether your mom will like the food.</li>
+    <li><strong>Clara does not replace visiting in person.</strong> No amount of data can tell you what it feels like to walk through the front door. Use Clara to narrow down your list, then go see the places yourself.</li>
+    <li><strong>Clara does not guarantee accuracy.</strong> We do our best to read the state's reports correctly, but these are complex legal documents and our AI, while good, isn't perfect. When in doubt, read the original inspection report (we link to it from each facility's detail page).</li>
+    <li><strong>Clara is not endorsed by DSHS.</strong> We're an independent tool that uses publicly available government data. The state doesn't review or approve our ratings.</li>
+    <li><strong>Clara does not make placement recommendations or decisions.</strong></li>
+    <li><strong>Clara does not guarantee the accuracy of call transcriptions or AI-generated summaries.</strong></li>
+  </ul>
+
+  <h3>How Often Is the Data Updated?</h3>
+
+  <p>Clara checks for new inspection reports every night. When the state publishes a new report, Clara picks it up, reads it, and updates the facility's color. Most facilities are inspected once a year, so don't expect the colors to change frequently. That's normal.</p>
+
+  <h3>Questions?</h3>
+
+  <p>If you spot something that doesn't look right, or you have questions about how a particular facility was rated, reach out to us at <a href="mailto:howto@cutboringwork.com">howto@cutboringwork.com</a>. We take accuracy seriously and we'll look into it.</p>
+
+</article>
+
+<section class="method-cta">
+  <p>Ready to find the right care facility?</p>
+  <a href="{{ site.app_url }}">Try Clara →</a>
+</section>

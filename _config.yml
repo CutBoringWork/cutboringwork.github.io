@@ -1,0 +1,6 @@
+title: Cut Boring Work
+url: https://cutboringwork.com
+app_url: https://clara.cutboringwork.com
+exclude:
+  - README.md
+  - LICENSE

@@ -1,0 +1,261 @@
+---
+layout: default
+title: "Pricing - Clara by Cut Boring Work"
+description: "Simple, transparent pricing for Clara — AI-powered senior care placement tools."
+og_title: "Clara Pricing"
+og_description: "Free, Premium Monthly, Premium Annual, and Franchise plans for senior care professionals."
+og_type: "website"
+og_url: "https://cutboringwork.com/pricing"
+canonical: "https://cutboringwork.com/pricing"
+---
+<style>
+  .pricing-hero {
+    background: linear-gradient(180deg, var(--brand) 0%, var(--brand-dark) 100%);
+    color: white;
+    text-align: center;
+    padding: 60px 24px 48px;
+  }
+  .pricing-hero h1 {
+    font-family: 'Fraunces', serif;
+    font-size: 2.2rem;
+    margin-bottom: 12px;
+  }
+  .pricing-hero p {
+    font-size: 1.1rem;
+    opacity: 0.85;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+    max-width: 960px;
+    margin: -40px auto 48px;
+    padding: 0 24px;
+  }
+  .pricing-card {
+    background: white;
+    border-radius: 16px;
+    padding: 28px 24px;
+    text-align: center;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+    border: 2px solid transparent;
+    position: relative;
+  }
+  .pricing-card.featured {
+    border-color: var(--brand);
+    transform: scale(1.03);
+  }
+  .pricing-card.annual {
+    border-color: #f4c057;
+  }
+  .pricing-card h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 1.2rem;
+    color: var(--brand);
+    margin-bottom: 8px;
+  }
+  .pricing-card .price {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--brand-dark);
+    margin-bottom: 4px;
+  }
+  .pricing-card .price span {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: #888;
+  }
+  .pricing-card .subtitle {
+    font-size: 0.85rem;
+    color: #888;
+    margin-bottom: 16px;
+  }
+  .pricing-card ul {
+    text-align: left;
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px;
+  }
+  .pricing-card ul li {
+    padding: 6px 0;
+    font-size: 0.85rem;
+    color: #444;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  .pricing-card ul li:last-child { border-bottom: none; }
+  .pricing-card ul li::before {
+    content: "\2713 ";
+    color: var(--brand);
+    font-weight: 700;
+  }
+  .pricing-card .cta {
+    display: inline-block;
+    background: var(--brand);
+    color: white;
+    padding: 12px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+  .pricing-card .cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  }
+  .pricing-card .cta.outline {
+    background: transparent;
+    color: var(--brand);
+    border: 2px solid var(--brand);
+  }
+  .save-badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #f4c057;
+    color: var(--brand-dark);
+    padding: 4px 14px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 700;
+    white-space: nowrap;
+  }
+  .pricing-note {
+    text-align: center;
+    max-width: 640px;
+    margin: 0 auto 48px;
+    padding: 0 24px;
+    font-size: 0.85rem;
+    color: #888;
+    line-height: 1.7;
+  }
+  .faq {
+    max-width: 640px;
+    margin: 0 auto 48px;
+    padding: 0 24px;
+  }
+  .faq h2 {
+    font-family: 'Fraunces', serif;
+    text-align: center;
+    margin-bottom: 24px;
+    color: var(--brand);
+  }
+  .faq-item {
+    margin-bottom: 16px;
+    padding: 16px;
+    background: rgba(27,77,74,0.03);
+    border-radius: 10px;
+  }
+  .faq-item strong {
+    display: block;
+    margin-bottom: 4px;
+    color: var(--brand-dark);
+  }
+  .faq-item p {
+    font-size: 0.9rem;
+    color: #555;
+    margin: 0;
+    line-height: 1.6;
+  }
+  @media (max-width: 600px) {
+    .pricing-grid { grid-template-columns: 1fr; }
+    .pricing-card.featured { transform: none; }
+  }
+</style>
+
+<section class="pricing-hero">
+  <h1>Simple, Transparent Pricing</h1>
+  <p>AI-powered senior care placement tools for families and professionals. Start free, upgrade when you're ready.</p>
+</section>
+
+<div class="pricing-grid">
+  <div class="pricing-card">
+    <h3>Free</h3>
+    <div class="price">$0</div>
+    <div class="subtitle">For families exploring options</div>
+    <ul>
+      <li>Search 5,200+ licensed facilities</li>
+      <li>Interactive map of Washington State</li>
+      <li>Inspection severity scores &amp; trends</li>
+      <li>PDF comparison reports</li>
+      <li>Like/dislike to track your search</li>
+    </ul>
+    <a href="{{ site.app_url }}/auth/google" class="cta outline">Get Started Free</a>
+  </div>
+
+  <div class="pricing-card featured">
+    <h3>Premium Monthly</h3>
+    <div class="price">$786<span>/mo</span></div>
+    <div class="subtitle">For care professionals</div>
+    <ul>
+      <li>Everything in Free, plus:</li>
+      <li>Clara AI Chat</li>
+      <li>Full inspection details &amp; AI analysis</li>
+      <li>Contact info, phone, Google ratings</li>
+      <li>Automated calls with transcription</li>
+      <li>SMS outreach to facilities</li>
+      <li>Full pipeline &amp; Excel import</li>
+    </ul>
+    <a href="{{ site.app_url }}/auth/google" class="cta">Get Started</a>
+  </div>
+
+  <div class="pricing-card annual">
+    <div class="save-badge">SAVE 15%</div>
+    <h3>Premium Annual</h3>
+    <div class="price">$7,999<span>/yr</span></div>
+    <div class="subtitle">~$667/mo &mdash; best value</div>
+    <ul>
+      <li>Everything in Premium Monthly</li>
+      <li>Best value for committed teams</li>
+      <li>Billed annually</li>
+      <li>Priority support</li>
+    </ul>
+    <a href="{{ site.app_url }}/auth/google" class="cta">Get Started</a>
+  </div>
+
+  <div class="pricing-card">
+    <h3>Franchise</h3>
+    <div class="price" style="font-size:1.4rem;">Custom</div>
+    <div class="subtitle">Multi-seat licenses for agencies</div>
+    <ul>
+      <li>Multiple seat licenses</li>
+      <li>Volume pricing</li>
+      <li>Dedicated onboarding</li>
+      <li>Priority support</li>
+    </ul>
+    <a href="mailto:howto@cutboringwork.com?subject=Clara%20Franchise%20Pricing" class="cta outline">Contact Sales</a>
+  </div>
+</div>
+
+<div class="pricing-note">
+  <strong>No hidden fees.</strong> Cancel monthly plans anytime &mdash; access continues until end of billing period. No refunds for partial months.
+  Annual plans: midway cancellation charged at the full monthly rate for months used.
+  Full terms in our <a href="/terms.html" style="color:var(--brand);">Terms of Service</a>.
+</div>
+
+<div class="faq">
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq-item">
+    <strong>Who is Clara for?</strong>
+    <p>Clara is designed for senior care placement agencies, care coordinators, and families searching for assisted living, adult family homes, memory care, and other senior care facilities in Washington State.</p>
+  </div>
+  <div class="faq-item">
+    <strong>What's included in the free plan?</strong>
+    <p>Search 5,200+ licensed facilities on an interactive map, view inspection severity scores, generate PDF comparison reports, and track your favorites.</p>
+  </div>
+  <div class="faq-item">
+    <strong>What does Premium add?</strong>
+    <p>AI chat, full inspection reports with AI analysis, facility contact info, automated voice calls with live transcription, SMS outreach, and a full kanban pipeline to manage your placements.</p>
+  </div>
+  <div class="faq-item">
+    <strong>Can I cancel anytime?</strong>
+    <p>Yes. Monthly plans can be cancelled anytime &mdash; you keep access until the end of your billing period. Annual plan cancellations are prorated at the monthly rate.</p>
+  </div>
+  <div class="faq-item">
+    <strong>Is there a free trial?</strong>
+    <p>The free plan is permanently free with no time limit. You can upgrade to Premium when you need advanced features like AI chat, automated calls, and SMS outreach.</p>
+  </div>
+</div>

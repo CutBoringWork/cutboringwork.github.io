@@ -1,0 +1,398 @@
+---
+layout: default
+title: "Clara — Senior Care Placement, Simplified"
+description: "Find, compare, and connect with senior care facilities across Washington State — powered by real inspection data and AI."
+og_title: "Clara — Senior Care Placement, Simplified"
+og_description: "Search 5,200+ facilities, view real inspection data, and let Clara call providers on your behalf."
+og_type: "website"
+og_url: "https://cutboringwork.com"
+og_image: "https://cutboringwork.com/og-image.png"
+twitter_card: "summary_large_image"
+twitter_title: "Clara — Senior Care Placement, Simplified"
+twitter_description: "Search 5,200+ facilities, view real inspection data, and let Clara call providers on your behalf."
+twitter_image: "https://cutboringwork.com/og-image.png"
+canonical: "https://cutboringwork.com"
+---
+<style>
+  .hero {
+    background: linear-gradient(180deg, var(--brand) 0%, var(--brand-dark) 100%);
+    color: white;
+    padding: 80px 32px 100px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: var(--cream);
+    border-radius: 50% 50% 0 0 / 100% 100% 0 0;
+  }
+  .hero h2 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 20px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hero p {
+    font-size: clamp(1rem, 2vw, 1.15rem);
+    color: rgba(255,255,255,0.8);
+    max-width: 520px;
+    margin: 0 auto 32px;
+    line-height: 1.7;
+  }
+  .hero-cta {
+    display: inline-block;
+    background: white;
+    color: var(--brand);
+    font-weight: 700;
+    font-size: 16px;
+    padding: 14px 32px;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: transform 0.2s, box-shadow 0.2s;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  }
+  .hero-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+  }
+
+  /* Day walkthrough */
+  .walkthrough {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 60px 32px 40px;
+  }
+  .walkthrough h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 24px;
+    text-align: center;
+    color: var(--ink);
+    margin-bottom: 12px;
+  }
+  .walkthrough > p {
+    text-align: center;
+    color: var(--muted);
+    font-size: 15px;
+    margin-bottom: 40px;
+    line-height: 1.6;
+  }
+  .step {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    gap: 0 20px;
+    margin-bottom: 32px;
+    position: relative;
+  }
+  .step::before {
+    content: '';
+    position: absolute;
+    left: 39px;
+    top: 36px;
+    bottom: -32px;
+    width: 2px;
+    background: var(--border);
+  }
+  .step:last-child::before { display: none; }
+  .step-time {
+    font-family: 'Fraunces', serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--brand);
+    background: var(--cream);
+    border: 2px solid var(--brand);
+    border-radius: 20px;
+    padding: 6px 0;
+    text-align: center;
+    height: fit-content;
+    position: relative;
+    z-index: 1;
+  }
+  .step-content h4 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+  .step-content p {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.65;
+  }
+  .step-highlight {
+    display: inline-block;
+    background: #e8f4f3;
+    color: var(--brand);
+    font-size: 12px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 6px;
+    margin-top: 8px;
+  }
+
+  /* Mid CTA */
+  .mid-cta {
+    text-align: center;
+    padding: 20px 32px 60px;
+  }
+
+  /* Data trust */
+  .data-trust {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 32px 60px;
+  }
+  .data-trust h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 24px;
+    text-align: center;
+    color: var(--ink);
+    margin-bottom: 12px;
+  }
+  .data-trust > p {
+    text-align: center;
+    color: var(--muted);
+    font-size: 15px;
+    margin-bottom: 32px;
+    line-height: 1.6;
+  }
+  .trust-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+  .trust-item {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px;
+  }
+  .trust-item h4 {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+  .trust-item p {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+  .trust-number {
+    font-family: 'Fraunces', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--brand);
+    margin-bottom: 4px;
+  }
+
+  /* Who it's for */
+  .audience {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 32px 60px;
+  }
+  .audience h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 24px;
+    text-align: center;
+    color: var(--ink);
+    margin-bottom: 32px;
+  }
+  .audience-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+  .audience-card {
+    background: white;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 28px 24px;
+  }
+  .audience-card h4 {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 8px;
+  }
+  .audience-card p {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+  .audience-label {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 600;
+    padding: 3px 10px;
+    border-radius: 6px;
+    margin-bottom: 12px;
+  }
+  .label-free { background: #e8f4f3; color: var(--brand); }
+  .label-pro { background: #fef3e2; color: #b8860b; }
+
+  /* Final CTA */
+  .final-cta {
+    background: var(--brand);
+    color: white;
+    text-align: center;
+    padding: 60px 32px;
+  }
+  .final-cta h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 24px;
+    margin-bottom: 12px;
+  }
+  .final-cta p {
+    color: rgba(255,255,255,0.8);
+    font-size: 15px;
+    margin-bottom: 28px;
+    max-width: 460px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+  }
+
+  @media (max-width: 768px) {
+    .hero { padding: 60px 20px 80px; }
+    .walkthrough { padding: 40px 20px 20px; }
+    .step { grid-template-columns: 64px 1fr; gap: 0 14px; }
+    .step::before { left: 31px; }
+    .step-time { font-size: 12px; }
+    .trust-grid { grid-template-columns: 1fr; }
+    .audience-grid { grid-template-columns: 1fr; }
+    .data-trust, .audience { padding-left: 20px; padding-right: 20px; }
+    .final-cta { padding: 48px 20px; }
+  }
+</style>
+
+<section class="hero">
+  <h2>Senior Care Placement, Simplified</h2>
+  <p>Search 5,200+ licensed facilities across Washington State. View real inspection data. Let Clara call providers on your behalf.</p>
+  <a href="{{ site.app_url }}" class="hero-cta">Try Clara Free →</a>
+</section>
+
+<div style="background:var(--cream)">
+
+<section class="walkthrough">
+  <h3>See How Clara Works</h3>
+  <p>Here's what a typical morning looks like for a care coordinator using Clara.</p>
+
+  <div class="step">
+    <div class="step-time">10:00</div>
+    <div class="step-content">
+      <h4>Search near the family</h4>
+      <p>You type in a zip code or city. Clara shows every licensed adult family home and assisted living facility within 5 miles on an interactive map — color-coded by inspection results. Green means clean. Red means issues.</p>
+      <span class="step-highlight">5,200+ facilities indexed</span>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-time">10:05</div>
+    <div class="step-content">
+      <h4>Review real inspection data</h4>
+      <p>Click any pin to see the facility's full inspection history, deficiency details, and AI-generated severity scoring. No more digging through DSHS PDFs — Clara reads them for you.</p>
+      <span class="step-highlight">Updated from state records</span>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-time">10:10</div>
+    <div class="step-content">
+      <h4>Shortlist and reach out</h4>
+      <p>Like the facilities that fit. Move them to your Shortlist. Clara pre-writes a text message introducing herself on your behalf and sends it to the facility.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-time">10:30</div>
+    <div class="step-content">
+      <h4>Clara calls when they respond</h4>
+      <p>A facility texts back "sure, call me." Clara automatically calls them, asks your vetted questions about availability, pricing, and Medicaid — and transcribes the conversation live so you can watch.</p>
+      <span class="step-highlight">AI voice interview with live transcription</span>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-time">10:35</div>
+    <div class="step-content">
+      <h4>Get a summary, share with the family</h4>
+      <p>After the call, Clara generates an interview summary: beds available, monthly cost, Medicaid status. Export a comparison PDF and share it with the family. You just saved an hour of phone calls.</p>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="step-time">Later</div>
+    <div class="step-content">
+      <h4>Facilities update their own profiles</h4>
+      <p>Clara invites each facility to claim their listing on a free portal. They add availability, rates, amenities, and care capabilities. Next time you search, their data is richer — for you and every family who follows.</p>
+      <span class="step-highlight">Data gets better with every call</span>
+    </div>
+  </div>
+</section>
+
+<div class="mid-cta">
+  <a href="{{ site.app_url }}" class="hero-cta" style="background:var(--brand);color:white;">Try Clara Free →</a>
+</div>
+
+<section class="data-trust">
+  <h3>Real Data, Not Guesswork</h3>
+  <p>Clara is built on public inspection records from the Washington State Department of Social and Health Services. <a href="/methodology.html" style="color:var(--brand);font-weight:600;text-decoration:underline dotted;text-underline-offset:2px;">See how we rate facilities →</a></p>
+
+  <div class="trust-grid">
+    <div class="trust-item">
+      <div class="trust-number">5,200+</div>
+      <h4>Licensed Facilities</h4>
+      <p>Every adult family home and assisted living facility in Washington State, searchable on one map.</p>
+    </div>
+    <div class="trust-item">
+      <div class="trust-number">6,000+</div>
+      <h4>Inspection Reports</h4>
+      <p>AI reads and summarizes state inspection PDFs so you can understand a facility's history at a glance.</p>
+    </div>
+    <div class="trust-item">
+      <div class="trust-number">4</div>
+      <h4>Color Severity Scores</h4>
+      <p>Green, yellow, red, or grey — every facility gets a clear rating based on their most recent inspection.</p>
+    </div>
+    <div class="trust-item">
+      <div class="trust-number">Nightly</div>
+      <h4>Data Refreshes</h4>
+      <p>Inspection data refreshes every night. DSHS changes are detected automatically. You always see the latest state records.</p>
+    </div>
+  </div>
+</section>
+
+<section class="audience">
+  <h3>Who Clara Is For</h3>
+  <div class="audience-grid">
+    <div class="audience-card">
+      <span class="audience-label label-free">Free</span>
+      <h4>Families</h4>
+      <p>Search the map, view inspection data, compare facilities, and export PDFs. Everything you need to start narrowing down options for a loved one.</p>
+    </div>
+    <div class="audience-card">
+      <span class="audience-label label-pro">Premium — $786/mo</span>
+      <h4>Care Professionals</h4>
+      <p>Automated SMS and voice outreach, live call transcription, interview summaries, kanban pipeline tracking, and Excel import. Clara does the phone work so you can focus on families.</p>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<section class="final-cta">
+  <h3>Ready to simplify your search?</h3>
+  <p>Sign in with Google. Search your first facility in 30 seconds. No credit card required.</p>
+  <a href="{{ site.app_url }}" class="hero-cta">Try Clara Free →</a>
+</section>

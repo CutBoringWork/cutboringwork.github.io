@@ -1,0 +1,130 @@
+---
+layout: default
+title: "Our Story — Cut Boring Work"
+description: "Why we built Clara. A son's journey through his father's dementia, and the tool he wished existed."
+---
+<style>
+  body { background: var(--cream); }
+  .story-hero {
+    background: linear-gradient(180deg, var(--brand) 0%, var(--brand-dark) 100%);
+    color: white;
+    padding: 80px 32px 60px;
+    text-align: center;
+  }
+  .story-hero h2 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+  .story-hero p {
+    font-size: 1.1rem;
+    color: rgba(255,255,255,0.75);
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  .story-content {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 60px 32px 80px;
+  }
+  .story-content p {
+    font-size: 17px;
+    line-height: 1.8;
+    color: #333;
+    margin-bottom: 24px;
+  }
+  .story-content p:last-of-type { margin-bottom: 0; }
+  .story-content .pullquote {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 600;
+    color: var(--brand);
+    line-height: 1.5;
+    border-left: 4px solid var(--brand);
+    padding-left: 24px;
+    margin: 40px 0;
+  }
+  .story-content .signature {
+    margin-top: 48px;
+    padding-top: 32px;
+    border-top: 1px solid var(--border);
+    font-size: 15px;
+    color: var(--muted);
+  }
+  .story-content .signature strong {
+    color: var(--ink);
+    display: block;
+    font-size: 17px;
+    margin-bottom: 4px;
+  }
+  .story-cta {
+    background: var(--warm-bg);
+    padding: 48px 32px;
+    text-align: center;
+  }
+  .story-cta p {
+    font-size: 17px;
+    color: var(--muted);
+    margin-bottom: 20px;
+  }
+  .story-cta a {
+    display: inline-block;
+    background: var(--brand);
+    color: white;
+    font-weight: 600;
+    font-size: 15px;
+    padding: 12px 28px;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: background 0.2s;
+  }
+  .story-cta a:hover { background: var(--brand-dark); }
+  @media (max-width: 768px) {
+    .story-hero { padding: 60px 20px 40px; }
+    .story-content { padding: 40px 20px 60px; }
+    .story-cta { padding: 32px 20px; }
+  }
+</style>
+
+<section class="story-hero">
+  <h2>Why We Built Clara</h2>
+  <p>This started with my dad.</p>
+</section>
+
+<article class="story-content">
+  <p>My father battled dementia for several years. If you've been through it with someone you love, you know what that's like. The slow fade. The conversations that loop. The moment you realize the person sitting across from you needs more care than your family can provide at home.</p>
+
+  <p>That realization is where the hardest part begins.</p>
+
+  <p>When we started looking for care facilities, I expected the process to be straightforward. It wasn't. We spent weeks calling places, driving across town, trying to compare options that were nearly impossible to compare. Inspection reports were buried in state databases. Reviews were sparse or outdated. Nobody could tell us which facilities had actual availability, and the ones that could were trying to sell us something.</p>
+
+  <p>The whole system felt like it was designed for insiders, not for families in crisis.</p>
+
+  <div class="pullquote">I kept thinking: someone should make this easier. Eventually I stopped waiting for someone else to do it.</div>
+
+  <p>I'm a technologist. I've spent my career building cloud infrastructure and solving complex problems with software. After I lost my dad, I couldn't shake the feeling that the tools we needed during those difficult months simply didn't exist. So I started building them.</p>
+
+  <p>Clara began as a simple question: what if you could search every licensed care facility in Washington State, see their real inspection history, and get an honest read on quality, all in one place? No sales pitch. No gated information. Just the data families need to make a good decision during an impossibly hard time.</p>
+
+  <p>The name Clara means "bright" or "clear." That's the goal. Clarity when everything feels confusing. Light when you're navigating in the dark.</p>
+
+  <p>Today, Clara covers over 5,200 facilities across Washington. It pulls real inspection data from the state, analyzes deficiency reports, and gives you a plain-language summary of what's going on at each facility. You can search by location, compare options side by side, and get the information that matters without creating an account or talking to a salesperson.</p>
+
+  <p>This isn't a business born from a market opportunity. It's a tool I wish I'd had. I'm building it so other families don't have to go through what mine did with so little help.</p>
+
+  <p>Since those early days, Clara has grown far beyond search. Today, Clara is a full AI assistant — you can chat with it in plain language about facilities, it can call providers on your behalf and transcribe the conversation in real time, and facility operators can claim their listing and update bed availability directly through Clara's Facility Portal. The mission hasn't changed: make finding care less painful.</p>
+
+  <p>If you're in the middle of this right now, looking for care for someone you love, I hope Clara makes it a little easier.</p>
+
+  <div class="signature">
+    <strong>Nilesh Londhe</strong>
+    that helpful dude at Cut Boring Work
+  </div>
+</article>
+
+<section class="story-cta">
+  <p>You can try Clara for free. Just use your Gmail to log in.</p>
+  <a href="{{ site.app_url }}">Try Clara →</a>
+</section>
